@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     const data = await response.json();
     const rows = data.values || [];
 
-    // Преобразуваме входните данни до малки букви и премахваме интервалите
+    // Преобразуваме входните данни до малки букви и премахваме излишните интервали
     const inputName = name.trim().toLowerCase();
     const inputEmail = email.trim().toLowerCase();
 
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Грешен имейл' });
       }
     } else {
-      // Ако не сме намерили съвпадение за името
+      // Ако не сме намерили ред с даденото име
       return res.status(400).json({ error: 'Грешно име!' });
     }
   } catch (error) {
